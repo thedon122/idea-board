@@ -6,30 +6,31 @@ class LogIn extends Component {
   state = {
     users: []
   }
+
   componentDidMount() {
-    this.getAllUsers
+    this.getAllUsers()
   }
 
   getAllUsers = () => {
-    axios.get('api/users')
-    .then(res => {
-      console.log("saving users to state", res.data)
-      this.setState({ users: res.data })
-    })
-    .catch(err => {
-      console.console.error(err);
-      
-    })
+    axios.get('/api/users')
+      .then(res => {
+        console.log("Saving users to state", res.data)
+        this.setState({ users: res.data })
+      })
+      .catch(err => {
+        console.error(err)
+      })
   }
 
   render() {
-    const userLinks = this.state.users.map((user, i )=> {
-      return
-      <div key={i}>
-      (<Link to={`/user/${user._id}`}>{user.userName}</Link>)
-      </div>
+    console.log("Users in state at LogIn Render", this.state.users)
+    const userLinks = this.state.users.map((user, i) => {
+      return (
+        <div key={i}>
+          <Link to={`/user/${user._id}`}>{user.userName}</Link>
+        </div>)
     })
-  
+
     return (
       <div>
         <div>
@@ -38,7 +39,7 @@ class LogIn extends Component {
         <h1>Log-In</h1>
         <h3>Please Select an Existing User</h3>
         {userLinks}
-        </div>
+      </div>
     )
   }
 }
