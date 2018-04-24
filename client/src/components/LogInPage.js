@@ -40,6 +40,7 @@ class LogIn extends Component {
         <h3>Please Select an Existing User</h3>
         {userLinks}
       </div>
+      <div></div>
     )
   }
 }
