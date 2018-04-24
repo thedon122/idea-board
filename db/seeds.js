@@ -23,4 +23,3 @@ User.remove({})
   .then(() => elon.save())
   .then(() => console.log('Successful Save'))
   .then(() => mongoose.connection.close())
-
